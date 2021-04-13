@@ -1,0 +1,456 @@
+$text-gray: #333333;
+$light-gray: #dddddd;
+$standard-border: 1px solid $light-gray;
+
+@mixin antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	&::-moz-selection {
+        //background-color:#f8d7da;
+        background-color:#303030;
+        color:#eeeeee;
+	}
+	&::selection {
+        //background-color:#f8d7da;
+        background-color:#303030;
+        color:#eeeeee;
+	}	
+}
+
+html,body {
+    width:100%;
+    height:100%;
+    background-color:$text-gray;
+}
+
+body {
+    font-size:16px;
+    font-family:'Roboto', 'Helvetica Neue', Helvetica, Arial,sans-serif;
+    color:$text-gray;
+}
+
+.page-wrapper {
+    background-color:#fdfbfb;
+    padding-bottom:100px;
+}
+
+.title-container {
+
+    text-align:center;
+    padding:80px;
+    margin-bottom:40px;
+    border-bottom:$standard-border;
+    background: rgb(226,225,240);
+    background: linear-gradient(263deg, rgba(226,225,240,1) 0%, rgba(251,234,234,1) 47%, rgba(226,225,240,1) 100%);
+    //background: rgb(25,20,119);
+    //background: linear-gradient(74deg, rgba(25,20,119,1) 0%, rgba(217,92,97,1) 44%, rgba(208,80,80,1) 54%, rgba(25,20,119,1) 100%);
+
+    h1 {
+        margin-bottom:0;
+        font-weight:500;
+        font-size:3.3rem;
+        text-transform:uppercase;
+        color:$text-gray;
+        
+        span {
+            border:3px solid $text-gray;
+            padding:20px 30px;
+        }
+    }
+}
+
+section.top {
+    margin-bottom:25px;
+}
+
+.mode-switches {
+    margin-bottom:15px;
+
+    .btn {
+        border-color:$text-gray;
+
+        &:focus {
+            border:none;
+            outline:none;
+            box-shadow:none;
+        }
+    }
+}
+
+.active-mode {
+    background-color:#454545;
+
+    /*
+i {
+        color:#fae185;
+    }
+*/
+}
+
+.active-mode .fa-sun-o {color:#fae185;}
+.active-mode .fa-moon-o {color:#00ADFF;}
+
+.top-stats-glance {
+    font-size:1.1rem;
+    text-align:center;
+    margin-bottom:40px;
+
+    p {
+        margin-bottom:0;
+    }
+
+    .band-count {
+        font-weight:500;
+        font-size:1.4rem;
+        @include antialiased;
+    }
+    
+    .border-container {
+	    padding:20px 30px 16px 30px;
+	    border:1px solid #333333;
+	    border-radius:4px;
+    }
+}
+
+.search-card {
+    
+    margin-bottom:25px;
+
+    .card-header {
+        font-size:1.2rem;
+        background-color:#f4f4f4;
+
+        &::after {
+            display:block;
+            content:"";
+            clear:both;
+        }
+    }
+
+    select:hover {
+        cursor:pointer;
+    }
+
+    .toggle-holder {
+        display:none;
+    }
+    .toggle-search-view {
+        color:$text-gray;
+        font-size:2rem;
+        float:right;
+    }
+    
+    .form-control {
+        background-color:#fcfcfc;
+
+        &:focus {
+            outline:none;
+            box-shadow:none;
+            border-color:$text-gray;
+        }
+    }
+
+    button {
+        @include antialiased;
+    }
+}
+
+.stats-cards {
+
+    p {
+        margin-bottom:0;
+        font-weight:bold;
+        font-weight:500;
+        font-size:1.3rem;
+    }
+}
+
+a.stat-badge {
+    color:#6B757D;
+    font-size:1.2rem;
+}
+
+a.disclaimer-badge {
+    color:#D9534E;
+    font-size:1.2rem;
+}
+
+span.last-show-count {
+    display:block;
+    text-align:center;
+    padding:7px 20px;
+    border:1px solid #721c24;
+    border-radius:1px;
+}
+
+.mobile-stats {
+    display:none;
+}
+
+.year-heading {
+    margin-top:35px;
+    margin-bottom:25px;
+
+    h3 {
+        font-size:2.3rem;
+        margin:0;
+        padding-bottom:5px;
+        border-bottom:$standard-border;
+    }
+}
+
+.concert-row {
+    margin-bottom:15px;
+
+    .card {
+        transition:0.4s;
+
+        &:hover {
+            border-color:$text-gray;
+            transition:0.4s;
+        }
+    }
+}
+
+.concert .support {
+    font-size:1.14rem;
+    color:#6c757d;
+}
+
+span.venue {
+    font-size:1.2rem;
+}
+
+span.note {
+    font-style:italic;
+    display:block;
+    margin-top:10px;
+    font-size:0.85rem;
+}
+
+div.back-top {
+    display:none;
+    font-size:1.8rem;
+    background-color:#111111;
+    border-radius:50%;
+    width:60px;
+    text-align:center;
+    box-shadow:0 2px 4px $text-gray;
+    position:fixed;
+    right:15px;
+    bottom:50px;
+    padding:8px 0;
+
+    a {
+        position:relative;
+        top:0px;
+        color:#ffffff;
+    }
+}
+
+footer {
+    width:100%;
+    padding:25px;
+    color:#ffffff;
+    background-color:$text-gray;
+    font-size:0.9rem;
+    font-weight:300;
+    font-weight:lighter;
+    @include antialiased;
+}
+
+//STATS MODALS
+///////////////////////
+
+.stats-modal-title {
+    margin-bottom:25px;
+    text-align:center;
+    color:#ffffff;
+    background-color:$text-gray;
+    padding:10px;
+    font-weight:700;
+    @include antialiased;
+}
+
+.stats-modal-row {
+    padding:10px 0;
+    border-bottom:$standard-border;
+}
+
+.stat-item-title {
+    font-size:1.2rem;
+    font-weight:500;
+}
+
+#artists_modal {
+    .stats-modal-title {
+        margin-bottom:10px;
+    }
+    p.note {
+        margin-bottom:25px;
+        @include antialiased;
+    }
+}
+
+.venue-title {
+    margin-bottom:0;
+}
+
+.city-title, .band-title {
+    margin-bottom:5px;
+}
+
+.venue-city {
+    font-size:1rem;
+}
+
+.dark-mode {
+
+    color:#eeeeee;
+    background-color:#2e2e2e;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .title-container {
+        border-bottom:#111111;
+        background: rgb(226,225,240);
+        background: linear-gradient(263deg, rgb(86, 86, 92) 0%, rgb(221, 206, 206) 47%, rgb(86, 86, 92) 100%);
+    }
+	
+	.top-stats-glance .border-container {
+		border-color:#777777;
+		background-color:#444444;
+	}
+	
+    .search-card {
+
+        .card-header {
+            background-color:#444444;
+            border-bottom-color:#777777;
+        }
+
+        .toggle-search-view {
+
+            color:$light-gray;
+        }
+
+        .form-control {
+            background-color:$text-gray;
+            color:$light-gray;
+            border-color:#777777;
+        }
+    }
+
+    .card {
+        background-color:#3f3f3f;
+        border-color:#777777;
+    }
+
+    a.stat-badge {
+        color:#e0d7b6;
+    }
+
+    .list-group-item {
+        border-color:#111111;
+        color:#d3d3d3;
+        background-color:#444444;
+    }
+
+    .stats-row .alert-danger {
+        background-color:#b7b7b7;
+        color:$text-gray;
+        
+        span.last-show-count {
+	        border-color:$text-gray;
+        }
+    }
+
+    .concert-row {
+        .card {
+            &:hover {
+                border-color:#e0d7b6;
+            }
+        }
+    }
+
+    span.support {
+        color:#d1bfbf;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .title-container {
+        padding:50px 0;
+        margin-bottom:35px;
+
+        h1 {
+            font-size:2.7rem;
+        }
+    }
+
+    .search-card {
+        border-color:#999999;
+        
+        .card-header {
+            border-color:#999999;
+        }
+
+        .header-title {
+            position:relative;
+            top:11px;
+        }
+
+        .toggle-holder {
+            display:inline;
+        }
+    }
+
+    .list-container {
+        text-align:center;
+    }
+
+    .search-card {
+        .form-control, button {
+            margin-bottom:10px;
+        }
+    }
+
+
+    .stats-cards {
+        display:none;
+    }
+
+    .mobile-stats {
+        display:block;
+        font-weight:bold;
+        font-weight:500;
+        font-size:1.3rem;
+    }
+
+    .list-group-item {
+        color:$text-gray;
+    }
+
+    .show-date, .support {
+        display:block;
+    }
+
+    .concert h4 {
+        font-size:1.55rem;
+    }
+
+    .show-date {margin-bottom:10px;}
+    .support {margin-bottom:6px;font-size:1.2rem;}
+}
+
+@media only screen and (min-width: 768px) {
+    .concert-row {
+        h4.margin-fix {
+            margin-bottom:2px;
+        }
+    }    
+}
