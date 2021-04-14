@@ -28,13 +28,20 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 		<link rel="stylesheet" href="styles/styles.css">
+		<style>
+			.fluid-container {
+				margin:0 auto;
+				width: min(1160px, 100%);
+				padding:0.5rem 0.9rem;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="page-wrapper">
 			<div id="top" class="title-container">
 				<h1 class="text-center"><span>Concert Log</span></h1>
 			</div>
-			<div class="container">
+			<div class="fluid-container">
 				<section class="top">
 					<div class="row justify-content-center text-center mode-switches">
 						<div class="col-md-4">
