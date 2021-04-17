@@ -11,11 +11,11 @@
                     <h3 class="stats-modal-title">Disclaimers</h3>
                     <div class="row">
                         <div class="col-12">
-	                        <p style="margin-bottom:0;">While I strove over the years to keep an accurate and complete log, there are no-doubt shows I may have missed; maybe a random band seen at a bar one night, or another few bands that my various bands shared a bill with on tour, etc. I also decided in most cases not to include local bands/friends, unless they were featured on the bill as an opener. Therefore, this list may not be 100% complete in the strictest sense; the actual number of gigs attended, all inclusive, is far more.</p>
+	                        <p>While I strove over the years to keep an accurate and complete record, there are no-doubt shows I may have missed; maybe a random band seen at a bar one night, or a few bands that my own various bands shared a bill with on tour, etc.<br />I decided in most cases not to include local bands/friends, unless they were featured on the bill as an opener. Therefore, this list may not be 100% complete in the strictest-possible sense. The actual number of gigs attended, all inclusive, is far more.</p>
+                            <p style="margin-bottom:0;">Also included are a couple various other events like stand-up comedy performances or talks by anyone important... "marquee events," so to speak.</p>  
                             <hr />
-                            <p>My first concert - The New Kids On the Block - is guessed to have taken place in 1989, but the actual date is unknown, and somehow I have not been able to find an official record of it anywhere. Several other teen pop groups of the time were opening acts; some likely contenders being Sweet Sensation, the Cover Girls, etc.</p>
-                            <hr />
-	                        <p>Also included are various other events like stand-up comedy performances or talks by anyone important... "marquee events," so to speak.</p>                           
+                            <p>
+                                My first concert - The New Kids On the Block - is guessed to have taken place in either late 1989, or early 1990, but the actual date is unknown. Despite my research, I can't find a record of it anywhere online. Several other teen pop groups of the time were opening acts; some likely contenders being Sweet Sensation, the Cover Girls, etc.</p>                    
                         </div>
                     </div>
                 </div>

@@ -32,14 +32,14 @@ function loadAllConcerts() {
        },
        success: function(msg) {
 
-            var concert_html = msg.concert_html;
-            var concert_count = msg.concert_count;
-            var city_count = msg.city_count;
-            var venue_count = msg.venue_count;
+            let concert_html = msg.concert_html;
+            let concert_count = msg.concert_count;
+            let city_count = msg.city_count;
+            let venue_count = msg.venue_count;
             
-            $('.cities').html(city_count+' Cities');
-            $('.venues').html(venue_count+' Venues');
-            $('.concert-count').html(concert_count+' Shows');
+            $('.cities').html(`${city_count} <span class="stat-label">Cities</span>`);
+            $('.venues').html(`${venue_count} <span class="stat-label">Venues</span>`);
+            $('.concert-count').html(`${concert_count} <span class="stat-label">Shows</span>`);
             $('div.list-container').html(concert_html);
        }
    });
@@ -61,7 +61,7 @@ function collapseClass(size) {
 // TEXT SEARCH
 $('#concert-search input[name=text-search]').on('keyup', function(){
 
-    var text_search = $(this).val();
+    let text_search = $(this).val();
     
     if (text_search.length === 0) {
         $('#concert-search select').attr('disabled',false);
@@ -85,14 +85,14 @@ $('#concert-search input[name=text-search]').on('keyup', function(){
         },
         success: function(msg) {
 
-            var concert_html = msg.concert_html;
-            var concert_count = msg.concert_count;
-            var city_count = msg.city_count;
-            var venue_count = msg.venue_count;
+            let concert_html = msg.concert_html;
+            let concert_count = msg.concert_count;
+            let city_count = msg.city_count;
+            let venue_count = msg.venue_count;
 
-            city_count == 1 ? $('.cities').html(city_count+' City') : $('.cities').html(city_count+' Cities');
-            venue_count == 1 ? $('.venues').html(venue_count+' Venue') : $('.venues').html(venue_count+' Venues');
-            concert_count == 1 ? $('.concert-count').html(concert_count+' Show') : $('.concert-count').html(concert_count+' Shows');
+            city_count == 1 ? $('.cities').html(`${city_count} <span class="stat-label">City</span>`) : $('.cities').html(`${city_count} <span class="stat-label">Cities</span>`);
+            venue_count == 1 ? $('.venues').html(`${venue_count} <span class="stat-label">Venue</span>`) : $('.venues').html(`${venue_count} <span class="stat-label">Venues</span>`);
+            concert_count == 1 ? $('.concert-count').html(`${concert_count} <span class="stat-label">Show</span>`) : $('.concert-count').html(`${concert_count} <span class="stat-label">Shows</span>`);
 
             clearConcerts();
             addLoadingRow();
@@ -115,7 +115,7 @@ $('#concert-search input[name=text-search]').on('blur', function(){
 //SEARCH BY YEAR
 $('#concert-search select').on('change', function(){
 
-    var year = $(this).find('option:selected').val();
+    let year = $(this).find('option:selected').val();
     
     if ( $(this).val() == '') {
 
@@ -141,14 +141,14 @@ $('#concert-search select').on('change', function(){
         },
         success: function(msg) {
 
-            var concert_html = msg.concert_html;
-            var concert_count = msg.concert_count;
-            var city_count = msg.city_count;
-            var venue_count = msg.venue_count;
+            let concert_html = msg.concert_html;
+            let concert_count = msg.concert_count;
+            let city_count = msg.city_count;
+            let venue_count = msg.venue_count;
             
-            city_count == 1 ? $('.cities').html(city_count+' City') : $('.cities').html(city_count+' Cities');
-            venue_count == 1 ? $('.venues').html(venue_count+' Venue') : $('.venues').html(venue_count+' Venues');
-            concert_count == 1 ? $('.concert-count').html(concert_count+' Show') : $('.concert-count').html(concert_count+' Shows');
+            city_count == 1 ? $('.cities').html(`${city_count} <span class="stat-label">City</span>`) : $('.cities').html(`${city_count} <span class="stat-label">Cities</span>`);
+            venue_count == 1 ? $('.venues').html(`${venue_count} <span class="stat-label">Venue</span>`) : $('.venues').html(`${venue_count} <span class="stat-label">Venues</span>`);
+            concert_count == 1 ? $('.concert-count').html(`${concert_count} <span class="stat-label">Show</span>`) : $('.concert-count').html(`${concert_count} <span class="stat-label">Shows</span>`);
 
             clearConcerts();
             addLoadingRow();
@@ -208,7 +208,7 @@ $(document).ready(function(){
 
     $('.toggle-search-view').on('click', function(){
 
-        var icon = $(this).find('i');
+        let icon = $(this).find('i');
 
         if ( icon.hasClass('fa-chevron-circle-right') ) {
             icon.removeClass('fa-chevron-circle-right').addClass('fa-chevron-circle-down');

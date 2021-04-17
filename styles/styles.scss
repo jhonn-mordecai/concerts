@@ -1,10 +1,21 @@
-$text-gray: #333333;
+$text-gray: #303030;
 $light-gray: #dddddd;
+$info-link: #1595a8;
+$info-hover: #117585;
+$red: #d9534e;
+$darker-red: #a03c39;
 $standard-border: 1px solid $light-gray;
 
 @mixin antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin display-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 * {
@@ -34,24 +45,30 @@ body {
 
 .page-wrapper {
     background-color:#fdfbfb;
-    padding-bottom:100px;
+    padding-bottom:3.5rem;
+}
+
+.fluid-container {
+    margin:0 auto;
+    width: Min(1160px, 100%);
+    padding:0 0.9rem ;
 }
 
 .title-container {
 
     text-align:center;
     padding:5.5rem 2rem;
-    margin-bottom:40px;
     border-bottom:$standard-border;
     background: rgb(226,225,240);
     background: linear-gradient(263deg, rgba(226,225,240,1) 0%, rgba(251,234,234,1) 47%, rgba(226,225,240,1) 100%);
     //background: rgb(25,20,119);
     //background: linear-gradient(74deg, rgba(25,20,119,1) 0%, rgba(217,92,97,1) 44%, rgba(208,80,80,1) 54%, rgba(25,20,119,1) 100%);
+    transition: padding 0.2s linear;
 
     h1 {
         margin-bottom:0;
         font-weight:500;
-        font-size: clamp(2.4rem, 12vw, 4.6rem);
+        font-size: clamp(2rem, 12vw, 4.6rem);
         text-transform:uppercase;
         color:$text-gray;
         
@@ -82,52 +99,16 @@ section.top {
 
 .active-mode {
     background-color:#454545;
-
-    /*
-i {
-        color:#fae185;
-    }
-*/
 }
 
 .active-mode .fa-sun-o {color:#fae185;}
 .active-mode .fa-moon-o {color:#00ADFF;}
 
-.top-stats-glance {
-    font-size:1.1rem;
-    text-align:center;
-    margin-bottom:40px;
-
-    p {
-        margin-bottom:0;
-    }
-
-    .band-count {
-        font-weight:500;
-        font-size:1.4rem;
-        @include antialiased;
-    }
-    
-    .border-container {
-	    padding:20px 30px 16px 30px;
-	    border:1px solid #333333;
-	    border-radius:4px;
-    }
-}
-
 .search-card {
     
-    margin-bottom:25px;
-
     .card-header {
         font-size:1.2rem;
         background-color:#f4f4f4;
-
-        &::after {
-            display:block;
-            content:"";
-            clear:both;
-        }
     }
 
     select:hover {
@@ -144,7 +125,7 @@ i {
     }
     
     .form-control {
-        background-color:#fcfcfc;
+        background-color:#fafafa;
 
         &:focus {
             outline:none;
@@ -158,24 +139,112 @@ i {
     }
 }
 
-.stats-cards {
+.stats-row {
+    @include display-flex;
+    justify-content:center;
+    margin: 1.3rem 0;
+    border:$standard-border;
+}
 
-    p {
-        margin-bottom:0;
-        font-weight:bold;
-        font-weight:500;
-        font-size:1.3rem;
-    }
+.stats-row .stat-box:nth-child(1),
+.stats-row .stat-box:nth-child(2) {
+    border-right:$standard-border;
+}
+
+.stats-row .stat-box {
+    text-align:center;
+    padding:0.3rem 0.5rem 0.9rem;
+    flex:1;
+    background-color:#fff;
+    p {margin-bottom:0;}
+}
+
+span.stat-count {
+    display:block;
+    margin-bottom:0.5rem;
+    font-weight:bold;
+    font-weight:500;
+    font-size:2.4rem;
+}
+
+span.stat-label {
+    display:block;
+    font-weight:normal;
+    font-weight:400;
+    font-size:1.1rem;
 }
 
 a.stat-badge {
-    color:#6B757D;
+    display:block;
+    font-weight:lighter;
+    font-weight:300;
+    font-size:0.8rem;
+    transition:0.2s;
+
+    &:hover {
+        
+        transition:0.2s;
+    }
+}
+
+a.stat-badge i {
     font-size:1.2rem;
+    position:relative;
+    top:2px;
+    left:4px;
+}
+
+a.info-badge {
+    color:$info-link;
+    &:hover {
+        color:$info-hover;
+    }
 }
 
 a.disclaimer-badge {
-    color:#D9534E;
-    font-size:1.2rem;
+    color:$red;
+}
+
+.stats-row.top-stat {
+    display:block;
+    border:none;
+
+    a.stat-badge {
+        display:inline;
+        padding:0.6rem 1.5rem;
+        border-radius:4px;
+
+        &:hover {
+            color:#fff;
+            text-decoration:none;
+        }
+    }
+
+    a.info-badge {
+        border:1px solid $info-link;
+
+        &:hover {
+            background-color:$info-link;
+        }
+    }
+
+    a.disclaimer-badge {
+        border:1px solid $red;
+
+        &:hover {
+            background-color:$red;
+        }
+    }
+}
+
+.top-stat,
+.stats-row.top-stat .stat-box {
+    border:none;
+    background-color:transparent;
+}
+
+.alert.no-show-alert {
+    border-radius:0;
 }
 
 span.last-show-count {
@@ -184,10 +253,6 @@ span.last-show-count {
     padding:7px 20px;
     border:1px solid #721c24;
     border-radius:1px;
-}
-
-.mobile-stats {
-    display:none;
 }
 
 .year-heading {
@@ -259,6 +324,7 @@ footer {
     font-size:0.9rem;
     font-weight:300;
     font-weight:lighter;
+    text-align:center;
     @include antialiased;
 }
 
@@ -359,7 +425,7 @@ footer {
         background-color:#444444;
     }
 
-    .stats-row .alert-danger {
+    .no-show-alert.alert-danger {
         background-color:#b7b7b7;
         color:$text-gray;
         
@@ -386,22 +452,22 @@ footer {
     .title-container {
         padding:3.4rem 0;
         margin-bottom:35px;
+        transition: padding 0.2s linear;
     }
 
     .search-card {
         border-color:#999999;
+        transition:display 0.2s linear;
         
         .card-header {
+            @include display-flex;
+            align-items:center;
             border-color:#999999;
         }
 
-        .header-title {
-            position:relative;
-            top:11px;
-        }
-
         .toggle-holder {
-            display:inline;
+            display:block;
+            margin-left:auto;
         }
     }
 
@@ -413,18 +479,6 @@ footer {
         .form-control, button {
             margin-bottom:10px;
         }
-    }
-
-
-    .stats-cards {
-        display:none;
-    }
-
-    .mobile-stats {
-        display:block;
-        font-weight:bold;
-        font-weight:500;
-        font-size:1.3rem;
     }
 
     .list-group-item {
@@ -451,12 +505,28 @@ footer {
     }    
 }
 
-@media only screen and (max-width: 460px) {
-    .top-stats-glance {
-        font-size:0.9rem;
-        
-        .border-container {
-            padding:20px 10px 16px 10px;
+@media only screen and (max-width:600px) {
+    .stats-row {
+        flex-direction:column;
+
+        .stat-box:nth-child(1),
+        .stat-box:nth-child(2) {
+            border-bottom:$standard-border;
+            border-right:none;
+        }
+    }
+
+    .stats-row.top-stat .stat-box {
+        border-bottom:none;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    
+    .stats-row.top-stat {
+        a.stat-badge {
+            display:inline;
+            padding:0.6rem;
         }
     }
 }

@@ -28,13 +28,6 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 		<link rel="stylesheet" href="styles/styles.css">
-		<style>
-			.fluid-container {
-				margin:0 auto;
-				width: min(1160px, 100%);
-				padding:0.5rem 0.9rem;
-			}
-		</style>
 	</head>
 	<body>
 		<div class="page-wrapper">
@@ -43,27 +36,29 @@
 			</div>
 			<div class="fluid-container">
 				<section class="top">
-					<div class="row justify-content-center text-center mode-switches">
+					<!-- <div class="row justify-content-center text-center mode-switches">
 						<div class="col-md-4">
 							<div class="btn-group" role="group"> 
 								<button type="button" class="btn btn-lg btn-light sun-btn active-mode"><i class="fa fa-sun-o" aria-hidden="true"></i></button>
 								<button type="button" class="btn btn-lg btn-light moon-btn"><i class="fa fa-moon-o" aria-hidden="true"></i></button>
 							</div>
 						</div>
-					</div>
-					<br />
-					<div class="row align-items-end">
-						<div class="col-12">
-							<div class="top-stats-glance">
-								<p>
-									<span class="border-container">
-										<span class="badge-pill badge-dark band-count"><?= $band_count; ?></span> <span class="font-weight-bold">bands/artists</span> seen since 1989. &nbsp;<a href="#artists_modal" class="stat-badge" data-toggle="modal" data-target="#artists_modal"><i class="fa fa-info-circle" aria-hidden="true"></i></a>&nbsp;
-										<a href="#disclaimer" class="disclaimer-badge" data-toggle="modal" data-target="#disclaimer"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></a>
-									</span>
-								</p>
-							</div>
+					</div> -->
+					<div class="stats-row top-stat">
+
+						<div class="stat-box">
+							<span class="stat-count band-count">
+								<span class="badge-pill badge-dark"><?= $band_count; ?></span>
+								<span class="stat-label">Bands/artists seen since 1989</span>
+							</span>
+						</div>
+						<div class="stat-box">
+							<a href="#artists_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#artists_modal">Most-Seen <i class="fa fa-info-circle" aria-hidden="true"></i></a>
+							&nbsp;
+							<a href="#disclaimer" class="stat-badge disclaimer-badge" data-toggle="modal" data-target="#disclaimer">Disclaimers <i class="fa fa-exclamation-circle" aria-hidden="true"></i></a>
 						</div>
 					</div>
+					
 					<div class="row">
 						<div class="col-12">
 							<div class="card search-card">
@@ -99,61 +94,34 @@
 							</div>
 						</div>
 					</div>
-					<div class="row stats-row justify-content-center">
-						<div class="col-md-10 text-center">
-							<div class="card-group stats-cards">
-								<div class="card">
-									<div class="card-body">
-										<p>
-											<span class="concert-count"></span>
-											<a href="#concert_year_modal" class="stat-badge" data-toggle="modal" data-target="#concert_year_modal"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-										</p>
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-body">
-										<p>
-											<span class="venues"></span>
-											<a href="#venues_modal" class="stat-badge" data-toggle="modal" data-target="#venues_modal"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-										</p>
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-body">
-										<p>
-											<span class="cities"></span>
-											<a href="#cities_modal" class="stat-badge" data-toggle="modal" data-target="#cities_modal"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-										</p>
-									</div>
-								</div>
-							</div>
-							<div class="card mobile-stats">
-								<ul class="list-group list-group-flush">
-									<li class="list-group-item list-group-item-light">
-										<span class="concert-count"></span>&nbsp;
-										<a href="#concert_year_modal" class="stat-badge" data-toggle="modal" data-target="#concert_year_modal"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-									</li>
-									<li class="list-group-item list-group-item-light">
-										<span class="venues"></span>&nbsp;
-										<a href="#venues_modal" class="stat-badge" data-toggle="modal" data-target="#venues_modal"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-									</li>
-									<li class="list-group-item list-group-item-light">
-										<span class="cities"></span>&nbsp;
-										<a href="#cities_modal" class="stat-badge" data-toggle="modal" data-target="#cities_modal"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-									</li>
-								</ul>
-							</div>
-							<br>
-							<div class="alert alert-danger" role="alert">								
-								<p>
-									<span class="font-weight-bold"><?= date("F j, Y"); ?> | </span> 
-									No concerts since November 21, 2019.
-								</p>
-								<span class="last-show-count">
-									<span class="font-weight-bold">Days Since Last Show:</span> <?= $days_since_last_show; ?>
-								</span>
-							</div>
+					<div class="stats-row">
+						<div class="stat-box">
+							<p>
+								<span class="stat-count concert-count"></span>
+								<a href="#concert_year_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#concert_year_modal">Count By Year <i class="fa fa-info-circle" aria-hidden="true"></i></a>
+							</p>
 						</div>
+						<div class="stat-box">
+							<p>
+								<span class="stat-count venues"></span>
+								<a href="#venues_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#venues_modal">20 Most-Visited <i class="fa fa-info-circle" aria-hidden="true"></i></a>
+							</p>
+						</div>
+						<div class="stat-box">
+							<p>
+								<span class="stat-count cities"></span>
+								<a href="#cities_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#cities_modal">10 Most-Visited <i class="fa fa-info-circle" aria-hidden="true"></i></a>
+							</p>
+						</div>
+					</div>
+					<div class="alert alert-danger no-show-alert text-center" role="alert">								
+						<p>
+							<span class="font-weight-bold"><?= date("F j, Y"); ?> | </span> 
+							No concerts since November 21, 2019.
+						</p>
+						<span class="last-show-count">
+							<span class="font-weight-bold">Days Since Last Show:</span> <?= $days_since_last_show; ?>
+						</span>
 					</div>
 				</section>
 
@@ -170,7 +138,7 @@
 		</div>
 
 		<footer>
-			<div class="text-center">
+			<div>
 				<span class="copy">&copy;<?= date('Y'); ?> John Mordecai</span>
 			</div>
 		</footer>	
