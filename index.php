@@ -56,6 +56,8 @@
 							<a href="#artists_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#artists_modal">Most-Seen <i class="fa fa-info-circle" aria-hidden="true"></i></a>
 							&nbsp;
 							<a href="#disclaimer" class="stat-badge disclaimer-badge" data-toggle="modal" data-target="#disclaimer">Disclaimers <i class="fa fa-exclamation-circle" aria-hidden="true"></i></a>
+							&nbsp;
+							<a href="#covid_gap" class="stat-badge info-badge" data-toggle="modal" data-target="#covid_gap">C-19 <i class="fa fa-bug" aria-hidden="true"></i></a>
 						</div>
 					</div>
 					
@@ -113,15 +115,6 @@
 								<a href="#cities_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#cities_modal">10 Most-Visited <i class="fa fa-info-circle" aria-hidden="true"></i></a>
 							</p>
 						</div>
-					</div>
-					<div class="alert alert-danger no-show-alert text-center" role="alert">								
-						<p>
-							<span class="font-weight-bold"><?= date("F j, Y"); ?> | </span> 
-							No concerts since November 21, 2019.
-						</p>
-						<span class="last-show-count">
-							<span class="font-weight-bold">Days Since Last Show:</span> <?= $days_since_last_show; ?>
-						</span>
 					</div>
 				</section>
 

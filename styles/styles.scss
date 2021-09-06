@@ -213,6 +213,7 @@ a.disclaimer-badge {
         display:inline;
         padding:0.6rem 1.5rem;
         border-radius:4px;
+        text-align:center;
 
         &:hover {
             color:#fff;
@@ -241,10 +242,6 @@ a.disclaimer-badge {
 .stats-row.top-stat .stat-box {
     border:none;
     background-color:transparent;
-}
-
-.alert.no-show-alert {
-    border-radius:0;
 }
 
 span.last-show-count {
@@ -423,15 +420,6 @@ footer {
         border-color:#111111;
         color:#d3d3d3;
         background-color:#444444;
-    }
-
-    .no-show-alert.alert-danger {
-        background-color:#b7b7b7;
-        color:$text-gray;
-        
-        span.last-show-count {
-	        border-color:$text-gray;
-        }
     }
 
     .concert-row {

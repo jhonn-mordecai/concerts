@@ -24,6 +24,38 @@
     </div>
 </div>
 
+<div class="modal fade stats-modal" id="covid_gap" tabindex="-1" role="dialog" aria-labelledby="disclaimer" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <h3 class="stats-modal-title">COVID GAP</h3>
+                    <div class="row">
+                        <div class="col-12">
+	                        <p>
+                                I saw no concerts during 2020, and for more than half of 2021, due to Covid pandemic blah-blah-blah. Longest stretch of no concerts since I started going to concerts.
+                            </p>
+                            <hr>                   
+                            <p>
+                                <strong>Days Between Concerts</strong>
+                                <br />
+                                Nov. 21, 2019 - Sept. 5, 2021
+                                <br />
+                                654 Days
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade stats-modal" id="concert_year_modal" tabindex="-1" role="dialog" aria-labelledby="concert_year_modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
