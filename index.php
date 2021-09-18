@@ -52,7 +52,7 @@
 								<span class="stat-label">Bands/artists seen since 1989</span>
 							</span>
 						</div>
-						<div class="stat-box">
+						<div class="stat-box modal-buttons">
 							<a href="#artists_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#artists_modal">Most-Seen <i class="fa fa-info-circle" aria-hidden="true"></i></a>
 							&nbsp;
 							<a href="#disclaimer" class="stat-badge disclaimer-badge" data-toggle="modal" data-target="#disclaimer">Disclaimers <i class="fa fa-exclamation-circle" aria-hidden="true"></i></a>

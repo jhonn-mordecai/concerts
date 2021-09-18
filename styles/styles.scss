@@ -156,7 +156,15 @@ section.top {
     padding:0.3rem 0.5rem 0.9rem;
     flex:1;
     background-color:#fff;
+
     p {margin-bottom:0;}
+}
+
+.stat-box.modal-buttons {
+
+    @include display-flex;
+    justify-content:center;
+    flex:1;
 }
 
 span.stat-count {
@@ -506,6 +514,22 @@ footer {
 
     .stats-row.top-stat .stat-box {
         border-bottom:none;
+    }
+
+    span.stat-count {
+        margin-bottom:0.5rem;
+        font-size:1.9rem;
+    }
+}
+
+@media only screen and (max-width:425px) {
+
+    .stat-box.modal-buttons {
+        flex-direction:column;
+    }
+
+    a.stat-badge i {
+        left:0;
     }
 }
 
