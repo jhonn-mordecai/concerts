@@ -15,9 +15,9 @@
 		
 		<meta property="og:title" content="John Mordecai - Concert Log">
 		<meta property="og:description" content="A record of more-or-less every show I've attended.">
-		<meta property="og:url" content="http://johnmordecai.com/concerts">
+		<meta property="og:url" content="https://johnmordecai.com/concerts">
   		<meta property="og:site_name" content="John Mordecai - Concert Log"> 		
-		<meta property="og:image" content="http://johnmordecai.com/concerts/concerts-crowd-og.png" />
+		<meta property="og:image" content="https://johnmordecai.com/concerts/concerts-crowd-og.png" />
 		<meta property="og:image:type" content="image/png" />
 		
 		<!-- Favicon -->
@@ -139,7 +139,7 @@
 		<?php include_once('includes/modals.php'); ?>
 
 		<!-- jQuery first, then Tether, then Bootstrap JS, then mine -->
-		<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 		<script src="scripts.js"></script>
