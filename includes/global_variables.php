@@ -9,7 +9,7 @@ if (substr($_SERVER["SERVER_ADDR"], 0, 7) == "192.168" || $_SERVER["SERVER_ADDR"
 	
 } else {
 	
-	define ("DB_SERVER", "rasmus");
+	define ("DB_SERVER", "localhost");
 	define ("DB_USER", "johnmord_admin");
 	define ("DB_PASS", "ySIx;wi#cD1)");
 	define ("DB_NAME", "johnmord_concerts");
