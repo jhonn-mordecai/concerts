@@ -31,23 +31,24 @@ body {
 }
 
 .title-container {
-  text-align: center;
   padding: 5.5rem 2rem;
   border-bottom: 1px solid #dddddd;
-  background: #e2e1f0;
-  background: linear-gradient(263deg, #e2e1f0 0%, #fbeaea 47%, #e2e1f0 100%);
+  background: rgb(226, 225, 240);
+  background: linear-gradient(263deg, rgb(226, 225, 240) 0%, rgb(251, 234, 234) 47%, rgb(226, 225, 240) 100%);
   transition: padding 0.2s linear;
 }
 .title-container h1 {
   margin-bottom: 0;
+  margin-inline: auto;
   font-weight: 500;
   font-size: clamp(2rem, 12vw, 4.6rem);
   text-transform: uppercase;
   color: #303030;
-}
-.title-container h1 span {
-  border: 4px solid #303030;
+  border: 5px solid #303030;
   padding: 1rem 1.5rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 section.top {
@@ -339,8 +340,8 @@ footer {
 }
 .dark-mode .title-container {
   border-bottom: #111111;
-  background: #e2e1f0;
-  background: linear-gradient(263deg, #56565c 0%, #ddcece 47%, #56565c 100%);
+  background: rgb(226, 225, 240);
+  background: linear-gradient(263deg, rgb(86, 86, 92) 0%, rgb(221, 206, 206) 47%, rgb(86, 86, 92) 100%);
 }
 .dark-mode .top-stats-glance .border-container {
   border-color: #777777;
@@ -383,7 +384,6 @@ footer {
     margin-bottom: 35px;
     transition: padding 0.2s linear;
   }
-
   .search-card {
     border-color: #999999;
     transition: display 0.2s linear;
@@ -397,31 +397,24 @@ footer {
     display: block;
     margin-left: auto;
   }
-
   .list-container {
     text-align: center;
   }
-
   .search-card .form-control, .search-card button {
     margin-bottom: 10px;
   }
-
   .list-group-item {
     color: #303030;
   }
-
   .show-date, .support {
     display: block;
   }
-
   .concert h4 {
     font-size: 1.55rem;
   }
-
   .show-date {
     margin-bottom: 10px;
   }
-
   .support {
     margin-bottom: 6px;
     font-size: 1.2rem;
@@ -441,11 +434,9 @@ footer {
     border-bottom: 1px solid #dddddd;
     border-right: none;
   }
-
   .stats-row.top-stat .stat-box {
     border-bottom: none;
   }
-
   span.stat-count {
     margin-bottom: 0.5rem;
     font-size: 1.9rem;
@@ -455,7 +446,6 @@ footer {
   .stat-box.modal-buttons {
     flex-direction: column;
   }
-
   a.stat-badge i {
     left: 0;
   }

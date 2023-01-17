@@ -32,7 +32,7 @@
 	<body>
 		<div class="page-wrapper">
 			<div id="top" class="title-container">
-				<h1 class="text-center"><span>Concert Log</span></h1>
+				<h1>Concert Log</h1>
 			</div>
 			<div class="fluid-container">
 				<section class="top">
