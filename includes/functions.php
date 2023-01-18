@@ -15,120 +15,32 @@ function assembleConcertHTML($queried_concerts) {
 
     foreach ($sorted_concerts as $year => $concerts) {
 
-        $concert_html .= '<div class="row year-heading">
-                            <div class="col-12">
-                                <h3>' . $year . '</h3>
-                            </div>
-                        </div>';
+        $concert_html .= '
+                        <div class="year-heading">
+                            <h3>' . $year . '</h3>                        
+                        </div>
+                    ';
 
         foreach ($concerts as $show => $info) {
 
             if ( !empty($info['main']) ) {
 
-                if ( !empty($info['support']) && !empty($info['headliner2']) ) {
-                    
-                    //Two headliners with support acts/text
-                    $concert_html .= '
-                        <div class="row concert-row">
-                            <div class="col-12">
-                                <div class="concert card">
-                                    <div class="card-body">
-                                        <div class="row align-items-end">
-                                            <div class="col-md-2">
-                                                <span class="show-date">'. date('M j, Y', strtotime($info['date'])) .'</span>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <h4>'. $info['main'] .'</h4>
-                                                <h4>'. $info['headliner2'] .'</h4>
-                                                <span class="support">'. $info['support'] .'</span>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <span class="venue">'. $info['venue'] .'</span><br><span class="city">'. $info['city_state'] .'</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                $concert_html .= '
+                    <div class="concert-row">
+                        <div class="column-date">
+                            <span class="show-date-month">'. date('M. j,', strtotime($info['date'])) .'</span>
+                            <span class="show-date-year">'. date('Y', strtotime($info['date'])) .'</span>
                         </div>
-                    ';
-                } 
-                elseif ( empty($info['support']) && !empty($info['headliner2']) ) {
-                    
-                    //Two headliners with no support acts/text
-                    $concert_html .= '
-                        <div class="row concert-row">
-                            <div class="col-12">
-                                <div class="concert card">
-                                    <div class="card-body">
-                                        <div class="row align-items-end">
-                                            <div class="col-md-2">
-                                                <span class="show-date">'. date('M j, Y', strtotime($info['date'])) .'</span>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <h4>'. $info['main'] .'</h4>
-                                                <h4 class="margin-fix">'. $info['headliner2'] .'</h4>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <span class="venue">'. $info['venue'] .'</span><br><span class="city">'. $info['city_state'] .'</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="column-main">
+                            <h4>'. $info['main'] .'</h4>
+                            <h4>'. $info['headliner2'] .'</h4>
+                            <span class="support">'. $info['support'] .'</span>
                         </div>
-                    ';
-                }
-                elseif ( empty($info['support']) && empty($info['headliner2']) ) {
-                    
-                    //One headliner with no support act
-                    $concert_html .= '
-                        <div class="row concert-row">
-                            <div class="col-12">
-                                <div class="concert card">
-                                    <div class="card-body">
-                                        <div class="row align-items-end">
-                                            <div class="col-md-2">
-                                                <span class="show-date">'. date('M j, Y', strtotime($info['date'])) .'</span>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <h4 class="margin-fix">'. $info['main'] .'</h4>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <span class="venue">'. $info['venue'] .'</span><br><span class="city">'. $info['city_state'] .'</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="column-venue">
+                            <span class="venue">'. $info['venue'] .'</span><br><span class="city">'. $info['city_state'] .'</span>
                         </div>
-                    ';
-                }
-                else {
-                    
-                    //Standard one headliner with support act/text
-                    $concert_html .= '
-                        <div class="row concert-row">
-                            <div class="col-12">
-                                <div class="concert card">
-                                    <div class="card-body">
-                                        <div class="row align-items-end">
-                                            <div class="col-md-2">
-                                                <span class="show-date">'. date('M j, Y', strtotime($info['date'])) .'</span>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <h4>'. $info['main'] .'</h4>
-                                                <span class="support">'. $info['support'] .'</span>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <span class="venue">'. $info['venue'] .'</span><br><span class="city">'. $info['city_state'] .'</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ';
-                }
+                    </div>
+                ';
             }  
         }
     }
