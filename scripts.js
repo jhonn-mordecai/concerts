@@ -202,7 +202,7 @@ $(document).ready(function(){
     });
 
     //Enable Collapsible search panel
-    var size = window.matchMedia( "(max-width: 767px)" );
+    var size = window.matchMedia( "(max-width: 737px)" );
     collapseClass(size);
     size.addListener(collapseClass);
 

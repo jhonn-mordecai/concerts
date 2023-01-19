@@ -31,8 +31,8 @@ body {
 }
 
 .title-container {
-  padding: 5.5rem 2rem;
-  border-bottom: 1px solid #dddddd;
+  padding: 4.5rem 2rem;
+  border-bottom: 1px solid #ccc;
   background: rgb(226, 225, 240);
   background: linear-gradient(263deg, rgb(226, 225, 240) 0%, rgb(251, 234, 234) 47%, rgb(226, 225, 240) 100%);
   transition: padding 0.2s linear;
@@ -52,11 +52,11 @@ body {
 }
 
 section.top {
-  margin-bottom: 25px;
+  margin-bottom: 2.1rem;
 }
 
 .mode-switches {
-  margin-bottom: 15px;
+  margin-top: 2rem;
 }
 .mode-switches .btn {
   border-color: #303030;
@@ -79,9 +79,13 @@ section.top {
   color: #00ADFF;
 }
 
+.search-card {
+  border-color: #ccc;
+}
 .search-card .card-header {
   font-size: 1.2rem;
-  background-color: #f4f4f4;
+  background-color: #e5e7e7;
+  border-bottom: none;
 }
 .search-card select:hover {
   cursor: pointer;
@@ -111,12 +115,16 @@ section.top {
   display: flex;
   justify-content: center;
   margin: 1.3rem 0;
-  border: 1px solid #dddddd;
+  border: 1px solid #ccc;
+}
+
+.stats-row.total-counts {
+  margin-bottom: 0;
 }
 
 .stats-row .stat-box:nth-child(1),
 .stats-row .stat-box:nth-child(2) {
-  border-right: 1px solid #dddddd;
+  border-right: 1px solid #ccc;
 }
 
 .stats-row .stat-box {
@@ -133,6 +141,7 @@ section.top {
   display: flex;
   justify-content: center;
   flex: 1;
+  gap: 0.75rem;
 }
 
 span.stat-count {
@@ -148,6 +157,7 @@ span.stat-label {
   font-weight: normal;
   font-weight: 400;
   font-size: 1.1rem;
+  line-height: 1;
 }
 
 a.stat-badge {
@@ -221,14 +231,17 @@ span.last-show-count {
 }
 
 .year-heading {
-  margin-top: 35px;
-  margin-bottom: 25px;
+  margin-block: 2.1rem;
+}
+.year-heading:first-child {
+  margin-top: 0;
 }
 .year-heading h3 {
   font-size: 2.3rem;
   margin: 0;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #dddddd;
+  padding-block: 0.5rem;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 .concert-row {
@@ -238,7 +251,7 @@ span.last-show-count {
 .concert-row {
   transition: 0.4s;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+  border: 1px solid #ccc;
   border-radius: 0.2rem;
   word-wrap: break-word;
 }
@@ -248,8 +261,10 @@ span.last-show-count {
 }
 
 .concert-row .support {
-  font-size: 1.14rem;
-  color: #6c757d;
+  font-size: 1.2rem;
+  color: #6b747b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 span.venue {
@@ -308,7 +323,7 @@ footer {
 
 .stats-modal-row {
   padding: 10px 0;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #ccc;
 }
 
 .stat-item-title {
@@ -326,7 +341,7 @@ footer {
 }
 
 .column-date {
-  background-color: #eee;
+  background-color: #e5e7e7;
 }
 
 .venue-title {
@@ -364,6 +379,9 @@ footer {
   color: #dddddd;
   border-color: #777777;
 }
+.dark-mode .column-date {
+  color: #fae185;
+}
 .dark-mode .stats-row .stat-box,
 .dark-mode .concert-row,
 .dark-mode .card {
@@ -392,6 +410,12 @@ footer {
 .dark-mode span.support {
   color: #d1bfbf;
 }
+@media only screen and (max-width: 737px) {
+  .dark-mode .year-heading h3 {
+    background-color: #3f3f3f;
+    color: #fae185;
+  }
+}
 
 .column-main h4:nth-child(2),
 .column-main .support {
@@ -406,10 +430,9 @@ footer {
   margin: 0;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 737px) {
   .title-container {
-    padding: 3.4rem 0;
-    margin-bottom: 35px;
+    padding: 3rem 0;
     transition: padding 0.2s linear;
   }
   .search-card {
@@ -434,18 +457,28 @@ footer {
   .list-group-item {
     color: #303030;
   }
-  .concert h4 {
+  .year-heading h3 {
+    font-size: 2.3rem;
+    border: none;
+    color: #fff;
+    background-color: #303030;
+  }
+  .concert-row h4 {
     font-size: 1.55rem;
   }
   .support {
     font-size: 1.2rem;
   }
   .column-date {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #ccc;
     padding: 0.5rem;
+    font-size: 1.1rem;
+  }
+  .show-date-day-big {
+    display: none;
   }
   .column-venue {
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid #ccc;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
@@ -456,11 +489,12 @@ footer {
     padding: 0.75rem 0.5rem;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 738px) {
   .concert-row {
     display: flex;
     align-items: flex-end;
     padding: 0;
+    justify-content: space-between;
   }
   .column-date {
     flex: 0 0 13.666667%;
@@ -469,12 +503,33 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid #dddddd;
+    gap: 0.3rem;
+    border-right: 1px solid #ccc;
+    line-height: 1;
+  }
+  .show-date-month {
+    font-size: 1.3rem;
+    position: relative;
+    right: -0.125rem;
+  }
+  .show-date-day-big {
+    font-weight: bold;
+    font-weight: 500;
+    font-size: 2.1rem;
+  }
+  .show-date-day-sm,
+.show-date-year {
+    display: none;
   }
   .column-main,
 .column-venue {
-    flex: 0 0 41.666667%;
     padding: 1.25rem;
+  }
+  .column-main {
+    flex: 0 0 44.666667%;
+  }
+  .column-venue {
+    flex: 0 0 38.666667%;
   }
 }
 @media only screen and (max-width: 470px) {
@@ -483,7 +538,7 @@ footer {
   }
   .stats-row .stat-box:nth-child(1),
 .stats-row .stat-box:nth-child(2) {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #ccc;
     border-right: none;
   }
   .stats-row.top-stat .stat-box {
@@ -491,10 +546,13 @@ footer {
   }
   span.stat-count {
     margin-bottom: 0.5rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+  }
+  span.stat-count.band-count {
+    margin-bottom: 1rem;
   }
   span.stat-label {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 @media only screen and (max-width: 425px) {

@@ -1,10 +1,11 @@
 $text-gray: #303030;
+$gray-highlight:#e5e7e7;
 $light-gray: #dddddd;
 $info-link: #128091;
 $info-hover: #106875;
 $red: #d9534e;
 $darker-red: #a03c39;
-$standard-border: 1px solid $light-gray;
+$standard-border: 1px solid #ccc;
 
 @mixin antialiased {
     -webkit-font-smoothing: antialiased;
@@ -55,7 +56,7 @@ body {
 }
 
 .title-container {
-    padding:5.5rem 2rem;
+    padding:4.5rem 2rem;
     border-bottom:$standard-border;
     background: rgb(226,225,240);
     background: linear-gradient(263deg, rgba(226,225,240,1) 0%, rgba(251,234,234,1) 47%, rgba(226,225,240,1) 100%);
@@ -77,11 +78,11 @@ body {
 }
 
 section.top {
-    margin-bottom:25px;
+    margin-bottom:2.1rem;
 }
 
 .mode-switches {
-    margin-bottom:15px;
+    margin-top:2rem;
 
     .btn {
         border-color:$text-gray;
@@ -103,9 +104,13 @@ section.top {
 
 .search-card {
     
+    border-color:#ccc;
+    
     .card-header {
         font-size:1.2rem;
-        background-color:#f4f4f4;
+        background-color:$gray-highlight;
+        border-bottom:none;
+        // background-color:#f4f4f4;
     }
 
     select:hover {
@@ -143,6 +148,8 @@ section.top {
     border:$standard-border;
 }
 
+.stats-row.total-counts {margin-bottom:0;}
+
 .stats-row .stat-box:nth-child(1),
 .stats-row .stat-box:nth-child(2) {
     border-right:$standard-border;
@@ -162,6 +169,7 @@ section.top {
     @include display-flex;
     justify-content:center;
     flex:1;
+    gap:0.75rem;
 }
 
 span.stat-count {
@@ -177,6 +185,7 @@ span.stat-label {
     font-weight:normal;
     font-weight:400;
     font-size:1.1rem;
+    line-height:1;
 }
 
 a.stat-badge {
@@ -258,13 +267,15 @@ span.last-show-count {
 }
 
 .year-heading {
-    margin-top:35px;
-    margin-bottom:25px;
+    margin-block:2.1rem;
+
+    &:first-child {margin-top:0;}
 
     h3 {
         font-size:2.3rem;
         margin:0;
-        padding-bottom:5px;
+        padding-block:0.5rem;
+        border-top:$standard-border;
         border-bottom:$standard-border;
     }
 }
@@ -287,8 +298,9 @@ span.last-show-count {
 }
 
 .concert-row .support {
-    font-size:1.14rem;
-    color:#6c757d;
+    font-size:1.2rem;
+    color:#6b747b;
+    @include antialiased;
 }
 
 span.venue {
@@ -367,7 +379,7 @@ footer {
     }
 }
 
-.column-date {background-color:#eee;}
+.column-date {background-color:$gray-highlight;}
 
 .venue-title {
     margin-bottom:0;
@@ -418,13 +430,15 @@ footer {
         }
     }
 
+    .column-date {color:#fae185;}
+
     .stats-row .stat-box,
     .concert-row,
     .card {
         background-color:#3f3f3f;
         border-color:#777777;
     }
-
+    
     .column-date {background-color:#505050;border-color:#777777;}
     .top-stat .stat-box {background-color:transparent;border:none;}
 
@@ -445,6 +459,10 @@ footer {
     span.support {
         color:#d1bfbf;
     }
+
+    @media only screen and (max-width:737px) {
+        .year-heading h3 {background-color: #3f3f3f;color:#fae185;}
+    }
 }
 
 .column-main h4:nth-child(2),
@@ -460,11 +478,10 @@ footer {
     margin:0;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 737px) {
 
     .title-container {
-        padding:3.4rem 0;
-        margin-bottom:35px;
+        padding:3rem 0;
         transition: padding 0.2s linear;
     }
 
@@ -498,7 +515,14 @@ footer {
         color:$text-gray;
     }
 
-    .concert h4 {
+    .year-heading h3 {
+        font-size:2.3rem;
+        border:none;
+        color:#fff;
+        background-color:$text-gray;
+    }
+
+    .concert-row h4 {
         font-size:1.55rem;
     }
 
@@ -509,7 +533,10 @@ footer {
     .column-date {
         border-bottom:$standard-border;
         padding:0.5rem;
+        font-size:1.1rem;
     }
+
+    .show-date-day-big {display:none;}
 
     .column-venue {
         border-top:$standard-border;
@@ -523,12 +550,13 @@ footer {
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 738px) {
 
     .concert-row {
         @include display-flex;
         align-items:flex-end;
         padding:0;
+        justify-content:space-between;
     }
     .column-date {
         flex:0 0 13.666667%;
@@ -537,12 +565,39 @@ footer {
         flex-direction:column;
         justify-content:center;
         align-items:center;
+        gap:0.3rem;
         border-right:$standard-border;
+        line-height:1;
     }
+
+    .show-date-month {
+        font-size:1.3rem;
+        position:relative;
+        right:-0.125rem;
+    }
+
+    .show-date-day-big {
+        font-weight:bold;
+        font-weight:500;
+        font-size:2.1rem;
+    }
+    
+    .show-date-day-sm,
+    .show-date-year {
+        display:none;
+    }
+
     .column-main,
     .column-venue {
-        flex:0 0 41.666667%;
         padding:1.25rem;
+    }
+
+    .column-main {
+        flex:0 0 44.666667%;
+    }
+
+    .column-venue {
+        flex:0 0 38.666667%;
     }
 }
 
@@ -563,9 +618,10 @@ footer {
 
     span.stat-count {
         margin-bottom:0.5rem;
-        font-size:1.6rem;
+        font-size:1.8rem;
     }
-    span.stat-label {font-size:1rem;}
+    span.stat-count.band-count {margin-bottom:1rem;}
+    span.stat-label {font-size:1.1rem;}
 }
 
 @media only screen and (max-width:425px) {

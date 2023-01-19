@@ -36,16 +36,8 @@
 			</div>
 			<div class="fluid-container">
 				<section class="top">
-					<!-- <div class="row justify-content-center text-center mode-switches">
-						<div class="col-md-4">
-							<div class="btn-group" role="group"> 
-								<button type="button" class="btn btn-lg btn-light sun-btn active-mode"><i class="fa fa-sun-o" aria-hidden="true"></i></button>
-								<button type="button" class="btn btn-lg btn-light moon-btn"><i class="fa fa-moon-o" aria-hidden="true"></i></button>
-							</div>
-						</div>
-					</div> -->
-					<div class="stats-row top-stat">
 
+					<div class="stats-row top-stat">
 						<div class="stat-box">
 							<span class="stat-count band-count">
 								<span class="badge-pill badge-dark"><?= $band_count; ?></span>
@@ -54,9 +46,7 @@
 						</div>
 						<div class="stat-box modal-buttons">
 							<a href="#artists_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#artists_modal">Most-Seen <i class="fa fa-info-circle" aria-hidden="true"></i></a>
-							&nbsp;
 							<a href="#disclaimer" class="stat-badge disclaimer-badge" data-toggle="modal" data-target="#disclaimer">Disclaimers <i class="fa fa-exclamation-circle" aria-hidden="true"></i></a>
-							&nbsp;
 							<a href="#covid_gap" class="stat-badge info-badge" data-toggle="modal" data-target="#covid_gap">C-19 <i class="fa fa-bug" aria-hidden="true"></i></a>
 						</div>
 					</div>
@@ -96,7 +86,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="stats-row">
+					<div class="stats-row total-counts">
 						<div class="stat-box">
 							<p>
 								<span class="stat-count concert-count"></span>
@@ -120,9 +110,7 @@
 
 				<!-- Concert List -->
 				<section class="concerts-list">
-					<div class="list-container">
-						<!-- Ajax content here -->
-					</div>
+					<div class="list-container"></div>
 				</section>
 			</div>
 		</div>

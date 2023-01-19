@@ -28,7 +28,9 @@ function assembleConcertHTML($queried_concerts) {
                 $concert_html .= '
                     <div class="concert-row">
                         <div class="column-date">
-                            <span class="show-date-month">'. date('M. j,', strtotime($info['date'])) .'</span>
+                            <span class="show-date-month">'. date('M.', strtotime($info['date'])) .'</span>
+                            <span class="show-date-day-big">'. date('j', strtotime($info['date'])) .'</span>
+                            <span class="show-date-day-sm">'. date('j, ', strtotime($info['date'])) .'</span>
                             <span class="show-date-year">'. date('Y', strtotime($info['date'])) .'</span>
                         </div>
                         <div class="column-main">
