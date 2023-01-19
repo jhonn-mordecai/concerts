@@ -270,9 +270,6 @@ span.last-show-count {
 
 .year-heading {
     background-color:#fdfbfb;
-    position:sticky;
-    top:0;
-    z-index:1;
 
     h3 {
         font-size:2.3rem;
@@ -555,6 +552,12 @@ footer {
 }
 
 @media only screen and (min-width: 738px) {
+
+    .year-heading {
+        position:sticky;
+        top:0;
+        z-index:1;
+    }
 
     .concert-row {
         @include display-flex;
