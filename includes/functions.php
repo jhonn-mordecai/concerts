@@ -17,19 +17,22 @@ function assembleConcertHTML($queried_concerts) {
 
         $concert_html .= '
                         <div class="year-wrapper">
-                        <div class="year-heading">
-                            <h3>' . $year . '</h3>                        
-                        </div>
+                            <div class="year-heading">
+                                <h3>' . $year . '</h3>                        
+                            </div>
                     ';
 
         foreach ($concerts as $show => $info) {
+            
+            $month = date('M', strtotime($info['date'])) === 'May' ? date('M', strtotime($info['date'])) : date('M.', strtotime($info['date'])) ; 
+            $may_margin_fix = $month === 'May' ? 'style="right:0;"' : '';
 
             if ( !empty($info['main']) ) {
 
                 $concert_html .= '
                     <div class="concert-row">
                         <div class="column-date">
-                            <span class="show-date-month">'. date('M.', strtotime($info['date'])) .'</span>
+                            <span class="show-date-month" '.$may_margin_fix.'>'. $month .'</span>
                             <span class="show-date-day-big">'. date('j', strtotime($info['date'])) .'</span>
                             <span class="show-date-day-sm">'. date('j, ', strtotime($info['date'])) .'</span>
                             <span class="show-date-year">'. date('Y', strtotime($info['date'])) .'</span>
