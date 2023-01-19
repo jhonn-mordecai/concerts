@@ -266,15 +266,19 @@ span.last-show-count {
     border-radius:1px;
 }
 
-.year-heading {
-    margin-block:2.1rem;
+.year-wrapper {margin-bottom:2.1rem;}
 
-    &:first-child {margin-top:0;}
+.year-heading {
+    background-color:#fdfbfb;
+    position:sticky;
+    top:0;
+    z-index:1;
 
     h3 {
         font-size:2.3rem;
         margin:0;
-        padding-block:0.5rem;
+        margin-bottom:2.1rem;
+        padding-block:0.8rem;
         border-top:$standard-border;
         border-bottom:$standard-border;
     }

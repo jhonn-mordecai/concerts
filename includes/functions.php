@@ -16,6 +16,7 @@ function assembleConcertHTML($queried_concerts) {
     foreach ($sorted_concerts as $year => $concerts) {
 
         $concert_html .= '
+                        <div class="year-wrapper">
                         <div class="year-heading">
                             <h3>' . $year . '</h3>                        
                         </div>
@@ -45,6 +46,7 @@ function assembleConcertHTML($queried_concerts) {
                 ';
             }  
         }
+        $concert_html .= '</div>';
     }
 
     return $concert_html;
