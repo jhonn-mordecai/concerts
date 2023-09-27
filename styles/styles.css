@@ -84,7 +84,7 @@ a:focus-visible,
   margin-bottom: 0;
   margin-inline: auto;
   font-weight: 500;
-  font-size: clamp(2rem, 12vw, 4.6rem);
+  font-size: clamp(2rem, 11vw, 4.6rem);
   text-transform: uppercase;
   color: #303030;
   border: 5px solid #303030;
@@ -535,7 +535,7 @@ span.sub-info {
 
 @media only screen and (max-width: 737px) {
   .title-container {
-    padding: 3rem 0;
+    padding: 2rem 0;
     transition: padding 0.2s linear;
   }
   .search-card {
