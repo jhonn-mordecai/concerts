@@ -180,6 +180,30 @@ $('button.btn-clear').on('click', function(){
     loadAllConcerts();
 });
 
+
+// OPEN+CLOSE DIALOG MODALS
+let openModalBtn = document.querySelectorAll('.open-modal');
+let closeModalBtn = document.querySelectorAll('.close-modal');
+
+for (let thisOpenBtn of openModalBtn) {
+    thisOpenBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        let modalTarget = e.target.getAttribute('data-target-modal');
+        let modal = document.getElementById(modalTarget);
+        modal.showModal();
+        modal.setAttribute("aria-hidden", "false");
+    });
+}
+
+for (let thisCloseBtn of closeModalBtn) {
+    thisCloseBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.target.closest('dialog').close();
+        e.target.closest('dialog').setAttribute("aria-hidden", "true");
+    })
+}
+
+
 // DOCUMENT READY
 $(document).ready(function(){
 

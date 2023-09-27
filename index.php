@@ -25,6 +25,7 @@
 	
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<!-- <link rel="stylesheet" href="styles/bootstrap.css"> -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 		<link rel="stylesheet" href="styles/styles.css">
@@ -34,23 +35,25 @@
 			<div id="top" class="title-container">
 				<h1>Concert Log</h1>
 			</div>
+			
 			<div class="fluid-container">
 				<section class="top">
 
-					<div class="stats-row top-stat">
-						<div class="stat-box">
-							<span class="stat-count band-count">
-								<span class="badge-pill badge-dark"><?= $band_count; ?></span>
-								<span class="stat-label">Bands/artists seen since 1989</span>
-							</span>
+					<div class="top-level-data">
+						<div class="band-count">
+							<span class="total-count stat-count"><?= $band_count; ?></span>
+							<span class="band-count-label">Bands/artists seen</span>
 						</div>
-						<div class="stat-box modal-buttons">
-							<a href="#artists_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#artists_modal">Most-Seen <i class="fa fa-info-circle" aria-hidden="true"></i></a>
-							<a href="#disclaimer" class="stat-badge disclaimer-badge" data-toggle="modal" data-target="#disclaimer">Disclaimers <i class="fa fa-exclamation-circle" aria-hidden="true"></i></a>
-							<a href="#covid_gap" class="stat-badge info-badge" data-toggle="modal" data-target="#covid_gap">C-19 <i class="fa fa-bug" aria-hidden="true"></i></a>
-						</div>
+						
+						<a href="#" class="stat-badge info-badge open-modal" data-toggle="modal" title="Most-seen Artists" data-target-modal="artists_modal">
+							Most-Seen Artists &nbsp;<i class="fa fa-info-circle" aria-hidden="true"></i>
+						</a>
+						
+						<a href="#" class="stat-badge disclaimer-badge open-modal" data-toggle="modal" title="Disclaimers" data-target-modal="disclaimers">
+							Disclaimers &nbsp;<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+						</a>
 					</div>
-					
+				
 					<div class="row">
 						<div class="col-12">
 							<div class="card search-card">
@@ -90,19 +93,19 @@
 						<div class="stat-box">
 							<p>
 								<span class="stat-count concert-count"></span>
-								<a href="#concert_year_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#concert_year_modal">Count By Year <i class="fa fa-info-circle" aria-hidden="true"></i></a>
+								<a href="#" class="stat-badge info-badge open-modal" data-toggle="modal" data-target-modal="concert_year_modal">Count By Year <i class="fa fa-info-circle" aria-hidden="true"></i></a>
 							</p>
 						</div>
 						<div class="stat-box">
 							<p>
 								<span class="stat-count venues"></span>
-								<a href="#venues_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#venues_modal">20 Most-Visited <i class="fa fa-info-circle" aria-hidden="true"></i></a>
+								<a href="#" class="stat-badge info-badge open-modal" data-toggle="modal" data-target-modal="venues_modal">20 Most-Visited <i class="fa fa-info-circle" aria-hidden="true"></i></a>
 							</p>
 						</div>
 						<div class="stat-box">
 							<p>
 								<span class="stat-count cities"></span>
-								<a href="#cities_modal" class="stat-badge info-badge" data-toggle="modal" data-target="#cities_modal">10 Most-Visited <i class="fa fa-info-circle" aria-hidden="true"></i></a>
+								<a href="#" class="stat-badge info-badge open-modal" data-toggle="modal" data-target-modal="cities_modal">10 Most-Visited <i class="fa fa-info-circle" aria-hidden="true"></i></a>
 							</p>
 						</div>
 					</div>
@@ -127,9 +130,10 @@
 		<?php include_once('includes/modals.php'); ?>
 
 		<!-- jQuery first, then Tether, then Bootstrap JS, then mine -->
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+		<script src="js/jquery_3.6.0_min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-		<script src="scripts.js"></script>
+		<script src="js/scripts.js"></script>
 	</body>
 </html>

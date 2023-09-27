@@ -1,3 +1,27 @@
+@keyframes showModal {
+  from {
+    transform: translateY(-110%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hideModal {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-110%);
+  }
+}
 *::-moz-selection {
   background-color: #303030;
   color: #eeeeee;
@@ -5,6 +29,18 @@
 *::selection {
   background-color: #303030;
   color: #eeeeee;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+.sr-only {
+  height: 1px;
+  width: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  position: absolute;
 }
 
 html, body {
@@ -30,6 +66,13 @@ body {
   padding: 0 0.9rem;
 }
 
+a:focus-visible,
+.close-modal:focus {
+  outline: none;
+  outline: 2px solid #303030;
+  outline-offset: 2px;
+}
+
 .title-container {
   padding: 4.5rem 2rem;
   border-bottom: 1px solid #ccc;
@@ -46,7 +89,6 @@ body {
   color: #303030;
   border: 5px solid #303030;
   padding: 1rem 1.5rem;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -137,11 +179,43 @@ section.top {
   margin-bottom: 0;
 }
 
-.stat-box.modal-buttons {
+.top-level-data {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  flex: 1;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.8rem;
+  padding-block: 2.5rem;
+}
+
+.top-level-data a.stat-badge {
+  text-decoration: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+  border-radius: 1.4em;
+  padding: 0.5em 1.2em;
+}
+
+.top-level-data a.stat-badge i {
+  font-size: 1.5em;
+  position: relative;
+  top: 1.8px;
+}
+
+span.total-count.stat-count {
+  display: block;
+  line-height: 1;
+  text-align: center;
+  color: #fdfbfb;
+  background-color: #303030;
+  padding-block: 0.4rem;
+  border-radius: 1em;
+}
+
+.band-count-label {
+  font-size: 0.9rem;
 }
 
 span.stat-count {
@@ -156,8 +230,20 @@ span.stat-label {
   display: block;
   font-weight: normal;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   line-height: 1;
+}
+
+a.disclaimer-badge:hover {
+  color: #fdfbfb;
+  background-color: #d9534e;
+  border-color: #d9534e;
+}
+
+.top-level-data a.info-badge:hover {
+  color: #fdfbfb !important;
+  background-color: #128091;
+  border-color: #128091;
 }
 
 a.stat-badge {
@@ -171,7 +257,7 @@ a.stat-badge:hover {
   transition: 0.2s;
 }
 
-a.stat-badge i {
+.total-counts a.info-badge i {
   font-size: 1.2rem;
   position: relative;
   top: 2px;
@@ -187,39 +273,6 @@ a.info-badge:hover {
 
 a.disclaimer-badge {
   color: #d9534e;
-}
-
-.stats-row.top-stat {
-  display: block;
-  border: none;
-}
-.stats-row.top-stat a.stat-badge {
-  display: inline;
-  padding: 0.6rem 1.5rem;
-  border-radius: 4px;
-  text-align: center;
-}
-.stats-row.top-stat a.stat-badge:hover {
-  color: #fff;
-  text-decoration: none;
-}
-.stats-row.top-stat a.info-badge {
-  border: 1px solid #128091;
-}
-.stats-row.top-stat a.info-badge:hover {
-  background-color: #128091;
-}
-.stats-row.top-stat a.disclaimer-badge {
-  border: 1px solid #d9534e;
-}
-.stats-row.top-stat a.disclaimer-badge:hover {
-  background-color: #d9534e;
-}
-
-.top-stat,
-.stats-row.top-stat .stat-box {
-  border: none;
-  background-color: transparent;
 }
 
 span.last-show-count {
@@ -312,6 +365,36 @@ footer {
   -moz-osx-font-smoothing: grayscale;
 }
 
+dialog.my-modal {
+  width: min(500px, 100% - 1rem);
+  padding: 1.2rem;
+  border: 2px solid #303030;
+  border-radius: 4px;
+}
+
+dialog.my-modal[open] {
+  animation: showModal 0.5s ease normal;
+}
+
+.dialog.my-modal[open]::backdrop {
+  animation: fade 1s ease normal;
+}
+
+dialog.my-modal::backdrop {
+  background: rgba(10, 10, 10, 0.8);
+  animation: fade 0.5s ease normal;
+}
+
+button.close-modal {
+  cursor: pointer;
+  background: none;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  display: block;
+  margin-left: auto;
+}
+
 .stats-modal-title {
   margin-bottom: 25px;
   text-align: center;
@@ -321,6 +404,10 @@ footer {
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+span.sub-info {
+  color: #6b747b;
 }
 
 .stats-modal-row {
@@ -333,13 +420,27 @@ footer {
   font-weight: 500;
 }
 
+#artists_modal .stats-modal-row,
+#concert_year_modal .stats-modal-row,
+#cities_modal .stats-modal-row {
+  text-align: center;
+}
+
 #artists_modal .stats-modal-title {
   margin-bottom: 10px;
 }
 #artists_modal p.note {
   margin-bottom: 25px;
+  color: #6b747b;
+  font-style: italic;
+  text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#venues_modal .stats-modal-row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .column-date {
@@ -481,19 +582,17 @@ footer {
   }
   .column-venue {
     border-top: 1px solid #ccc;
-    width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
     margin-inline: auto;
   }
   .column-main,
-.column-venue {
+  .column-venue {
     padding: 0.75rem 0.5rem;
   }
 }
 @media only screen and (min-width: 738px) {
   .year-heading {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -526,11 +625,11 @@ footer {
     font-size: 2.1rem;
   }
   .show-date-day-sm,
-.show-date-year {
+  .show-date-year {
     display: none;
   }
   .column-main,
-.column-venue {
+  .column-venue {
     padding: 1.25rem;
   }
   .column-main {
@@ -545,35 +644,38 @@ footer {
     flex-direction: column;
   }
   .stats-row .stat-box:nth-child(1),
-.stats-row .stat-box:nth-child(2) {
+  .stats-row .stat-box:nth-child(2) {
     border-bottom: 1px solid #ccc;
     border-right: none;
   }
-  .stats-row.top-stat .stat-box {
-    border-bottom: none;
-  }
-  span.stat-count {
+  span.stat-count:not(.total-count) {
     margin-bottom: 0.5rem;
     font-size: 1.8rem;
   }
-  span.stat-count.band-count {
-    margin-bottom: 1rem;
-  }
   span.stat-label {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 }
-@media only screen and (max-width: 425px) {
-  .stat-box.modal-buttons {
+@media only screen and (min-width: 376px) {
+  #venues_modal .stats-modal-row {
+    align-items: flex-end;
+  }
+  #venues_modal .stats-modal-row .venue-left {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+  #venues_modal .stats-modal-row .venue-right {
+    flex: 0 0 25%;
+    max-width: 25%;
+    text-align: right;
+  }
+}
+@media only screen and (max-width: 375px) {
+  #venues_modal .stats-modal-row {
+    text-align: center;
     flex-direction: column;
   }
-  a.stat-badge i {
-    left: 0;
-  }
-}
-@media only screen and (max-width: 330px) {
-  .stats-row.top-stat a.stat-badge {
-    display: inline;
-    padding: 0.6rem;
+  #venues_modal .stats-modal-row .venue-left {
+    margin-bottom: 8px;
   }
 }/*# sourceMappingURL=styles.css.map */

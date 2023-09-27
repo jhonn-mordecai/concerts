@@ -3,6 +3,7 @@ $gray-highlight:#e5e7e7;
 $light-gray: #dddddd;
 $info-link: #128091;
 $info-hover: #106875;
+$support-gray: #6b747b;
 $red: #d9534e;
 $darker-red: #a03c39;
 $standard-border: 1px solid #ccc;
@@ -19,6 +20,34 @@ $standard-border: 1px solid #ccc;
     display: flex;
 }
 
+@keyframes showModal {
+    from {
+        transform: translateY(-110%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hideModal {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-110%);
+    }
+}
+
+
 * {
 	&::-moz-selection {
         //background-color:#f8d7da;
@@ -30,6 +59,16 @@ $standard-border: 1px solid #ccc;
         background-color:#303030;
         color:#eeeeee;
 	}	
+}
+
+*, ::after, ::before {box-sizing:border-box;}
+
+.sr-only {
+    height: 1px;
+    width: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    position: absolute;
 }
 
 html,body {
@@ -53,6 +92,13 @@ body {
     margin:0 auto;
     width: Min(1160px, 100%);
     padding:0 0.9rem ;
+}
+
+a:focus-visible,
+.close-modal:focus {
+    outline:none;
+    outline:2px solid $text-gray;
+    outline-offset: 2px;
 }
 
 .title-container {
@@ -164,12 +210,43 @@ section.top {
     p {margin-bottom:0;}
 }
 
-.stat-box.modal-buttons {
-
+.top-level-data {
     @include display-flex;
+    flex-wrap:wrap;
+    flex-direction:column;
     justify-content:center;
-    flex:1;
-    gap:0.75rem;
+    align-items:center;
+    gap:0.8rem;
+    padding-block:2.5rem;
+}
+
+.top-level-data a.stat-badge {
+    text-decoration:none;
+    border-width:1px;
+    border-style:solid;
+    border-color:inherit;
+    border-radius:1.4em;
+    padding:0.5em 1.2em;
+}
+
+.top-level-data a.stat-badge i {
+    font-size:1.5em;
+    position:relative;
+    top:1.8px;
+}
+
+span.total-count.stat-count {
+    display:block;
+    line-height:1;
+    text-align:center;
+    color:#fdfbfb;
+    background-color:$text-gray;
+    padding-block:0.4rem;
+    border-radius:1em;
+}
+
+.band-count-label {
+    font-size:0.9rem;
 }
 
 span.stat-count {
@@ -184,8 +261,19 @@ span.stat-label {
     display:block;
     font-weight:normal;
     font-weight:400;
-    font-size:1.1rem;
+    font-size:0.9rem;
     line-height:1;
+}
+
+a.disclaimer-badge:hover {
+    color:#fdfbfb;
+    background-color:$red;
+    border-color: $red;
+}
+.top-level-data a.info-badge:hover {
+    color:#fdfbfb !important;
+    background-color:$info-link;
+    border-color:$info-link;
 }
 
 a.stat-badge {
@@ -201,7 +289,7 @@ a.stat-badge {
     }
 }
 
-a.stat-badge i {
+.total-counts a.info-badge i {
     font-size:1.2rem;
     position:relative;
     top:2px;
@@ -217,45 +305,6 @@ a.info-badge {
 
 a.disclaimer-badge {
     color:$red;
-}
-
-.stats-row.top-stat {
-    display:block;
-    border:none;
-
-    a.stat-badge {
-        display:inline;
-        padding:0.6rem 1.5rem;
-        border-radius:4px;
-        text-align:center;
-
-        &:hover {
-            color:#fff;
-            text-decoration:none;
-        }
-    }
-
-    a.info-badge {
-        border:1px solid $info-link;
-
-        &:hover {
-            background-color:$info-link;
-        }
-    }
-
-    a.disclaimer-badge {
-        border:1px solid $red;
-
-        &:hover {
-            background-color:$red;
-        }
-    }
-}
-
-.top-stat,
-.stats-row.top-stat .stat-box {
-    border:none;
-    background-color:transparent;
 }
 
 span.last-show-count {
@@ -300,7 +349,7 @@ span.last-show-count {
 
 .concert-row .support {
     font-size:1.2rem;
-    color:#6b747b;
+    color:$support-gray;
     @include antialiased;
 }
 
@@ -350,6 +399,39 @@ footer {
 //STATS MODALS
 ///////////////////////
 
+dialog.my-modal {
+    width:min(500px, 100% - 1rem);
+    padding:1.2rem;
+    border:2px solid $text-gray;
+    border-radius:4px;
+}
+
+dialog.my-modal[open] {
+    -webkit-animation: showModal 0.5s ease normal;
+    animation: showModal 0.5s ease normal;
+}
+
+.dialog.my-modal[open]::backdrop {
+    -webkit-animation: fade 1s ease normal;
+    animation: fade 1s ease normal;
+}
+
+dialog.my-modal::backdrop {
+    background:rgba(10, 10, 10, 0.8);
+    -webkit-animation: fade 0.5s ease normal;
+    animation: fade 0.5s ease normal;
+}
+
+button.close-modal {
+    cursor:pointer;
+    background:none;
+    border:1px solid $light-gray;
+    border-radius: 4px;
+    padding:0.5rem;
+    display:block;
+    margin-left:auto;
+}
+
 .stats-modal-title {
     margin-bottom:25px;
     text-align:center;
@@ -359,6 +441,8 @@ footer {
     font-weight:700;
     @include antialiased;
 }
+
+span.sub-info {color:$support-gray;}
 
 .stats-modal-row {
     padding:10px 0;
@@ -370,14 +454,28 @@ footer {
     font-weight:500;
 }
 
+#artists_modal .stats-modal-row,
+#concert_year_modal .stats-modal-row,
+#cities_modal .stats-modal-row {
+    text-align:center;
+}
+
 #artists_modal {
     .stats-modal-title {
         margin-bottom:10px;
     }
     p.note {
         margin-bottom:25px;
+        color:$support-gray;
+        font-style:italic;
+        text-align:center;
         @include antialiased;
     }
+}
+
+#venues_modal .stats-modal-row {
+    display:flex;
+    flex-wrap:wrap;
 }
 
 .column-date {background-color:$gray-highlight;}
@@ -406,11 +504,6 @@ footer {
         background: rgb(226,225,240);
         background: linear-gradient(263deg, rgb(86, 86, 92) 0%, rgb(221, 206, 206) 47%, rgb(86, 86, 92) 100%);
     }
-	
-	// .top-stats-glance .border-container {
-	// 	border-color:#777777;
-	// 	background-color:#444444;
-	// }
 	
     .search-card {
 
@@ -619,35 +712,36 @@ footer {
         }
     }
 
-    .stats-row.top-stat .stat-box {
-        border-bottom:none;
-    }
-
-    span.stat-count {
+    span.stat-count:not(.total-count) {
         margin-bottom:0.5rem;
         font-size:1.8rem;
     }
-    span.stat-count.band-count {margin-bottom:1rem;}
-    span.stat-label {font-size:1.1rem;}
+
+    span.stat-label {font-size:0.9rem;}
 }
 
-@media only screen and (max-width:425px) {
+@media only screen and (min-width: 376px) {
 
-    .stat-box.modal-buttons {
+    #venues_modal .stats-modal-row {align-items:flex-end;}
+
+    #venues_modal .stats-modal-row .venue-left {
+       flex:0 0 75%;
+       max-width:75%;
+    }
+    #venues_modal .stats-modal-row .venue-right {
+        flex:0 0 25%;
+        max-width:25%;
+        text-align:right;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    
+    #venues_modal .stats-modal-row {
+        text-align:center;
         flex-direction:column;
     }
-
-    a.stat-badge i {
-        left:0;
-    }
-}
-
-@media only screen and (max-width: 330px) {
-    
-    .stats-row.top-stat {
-        a.stat-badge {
-            display:inline;
-            padding:0.6rem;
-        }
+    #venues_modal .stats-modal-row .venue-left {
+        margin-bottom:8px;
     }
 }
