@@ -48,9 +48,9 @@ function loadAllConcerts() {
 function collapseClass(size) {
 
     if (size.matches) {
-        $('#search-container').addClass('collapse');
+        $('#search-container').addClass('hidden');
     } else {
-        $('#search-container').removeClass('collapse');
+        $('#search-container').removeClass('hidden show-search');
     }
 }
 
@@ -180,7 +180,6 @@ $('button.btn-clear').on('click', function(){
     loadAllConcerts();
 });
 
-
 // OPEN+CLOSE DIALOG MODALS
 let openModalBtn = document.querySelectorAll('.open-modal');
 let closeModalBtn = document.querySelectorAll('.close-modal');
@@ -200,9 +199,8 @@ for (let thisCloseBtn of closeModalBtn) {
         e.preventDefault();
         e.target.closest('dialog').close();
         e.target.closest('dialog').setAttribute("aria-hidden", "true");
-    })
+    });
 }
-
 
 // DOCUMENT READY
 $(document).ready(function(){
@@ -230,19 +228,32 @@ $(document).ready(function(){
     collapseClass(size);
     size.addListener(collapseClass);
 
-    $('.toggle-search-view').on('click', function(){
-
+    $('.toggle-search-view').on('click', function(e){
+        e.preventDefault();
+        let searchContainer = $('#search-container');
         let icon = $(this).find('i');
 
-        if ( icon.hasClass('fa-chevron-circle-right') ) {
+        if (searchContainer.hasClass('hidden')) {
+            searchContainer.removeClass('hidden').addClass('show-search');
             icon.removeClass('fa-chevron-circle-right').addClass('fa-chevron-circle-down');
-        }
-        else if ( icon.hasClass('fa-chevron-circle-down') ) {
+        } else {
+            searchContainer.removeClass('show-search').addClass('hidden');
             icon.removeClass('fa-chevron-circle-down').addClass('fa-chevron-circle-right');
         }
-
     });
     
+    $(window).on('resize', () => {
+        let width = $(window).width();
+        let icon = $('.toggle-search-view i');
+       
+        if (width > 737) {
+            if (icon.hasClass('fa-chevron-circle-down')) {
+                icon.removeClass('fa-chevron-circle-down').addClass('fa-chevron-circle-right');
+            }
+            return false;
+        } 
+    });
+
     //Enable Dark Mode v. Light Mode
 
     $('.mode-switches button').on('click', function(){
@@ -265,7 +276,5 @@ $(document).ready(function(){
             $('span.badge-pill').removeClass('badge-dark').addClass('badge-light');
             $('.btn-clear').removeClass('btn-dark').addClass('btn-light');
         }
-
     });
-
 });

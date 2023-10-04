@@ -53,42 +53,39 @@
 							Disclaimers &nbsp;<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 						</a>
 					</div>
-				
-					<div class="row">
-						<div class="col-12">
-							<div class="card search-card">
-								<div class="card-header">
-									<span class="header-title">Search Concerts</span>
-									<span class="toggle-holder">
-										<a data-toggle="collapse" href="#search-container" role="button" class="toggle-search-view" aria-expanded="false" aria-controls="search-container"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
-									</span>
+					
+					<div class="search-card">
+						<div class="search-header">
+							<span class="header-title">Search Concerts</span>
+							<span class="toggle-holder">
+								<a href="#" role="button" class="toggle-search-view" aria-expanded="false" aria-controls="search-container"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
+							</span>
+						</div>
+						<div id="search-container">
+							<form id="concert-search">
+								<div class="form-fields">
+									<div class="form-item">
+										<input type="text" name="text-search" class="" placeholder="Band/Artist/Venue/City" />
+									</div>
+									<div class="form-item form-or">
+										<span>OR</span>
+									</div>
+									<div class="form-item">
+										<select id="year" name="year" class="">
+											<option value="" selected="selected">Year</option>
+											<?php foreach($years as $year): ?>
+											<option value="<?= $year; ?>"><?= $year; ?></option>
+											<?php endforeach; ?>
+										</select>
+									</div>
+									<div class="form-item">
+										<button class="btn-clear" type="button" disabled>Reset</button>
+									</div>
 								</div>
-								<div id="search-container" class="card-body">
-									<form id="concert-search">
-										<div class="form-row">
-											<div class="col-md-6">
-												<input type="text" name="text-search" class="form-control" placeholder="Band/Artist/Venue/City" />
-											</div>
-											<div class="col-md-1 text-center">
-												<p style="padding-top:8px;"><b>OR</b></p>
-											</div>
-											<div class="col-md-3">
-												<select id="year" name="year" class="form-control">
-													<option value="" selected="selected">Year</option>
-													<?php foreach($years as $year): ?>
-													<option value="<?= $year; ?>"><?= $year; ?></option>
-													<?php endforeach; ?>
-												</select>
-											</div>
-											<div class="col-md-2">
-												<button class="btn btn-block btn-dark btn-clear" type="button" disabled>Reset</button>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
+							</form>
 						</div>
 					</div>
+
 					<div class="stats-row total-counts">
 						<div class="stat-box">
 							<p>
