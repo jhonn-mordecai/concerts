@@ -151,7 +151,8 @@ $deletions = array(
     'Apse',
     'Reduction Plan',
     'Shark',
-    'Consciousness, Creativity and the Brain lecture'
+    'Consciousness, Creativity and the Brain lecture',
+    'Public Memory'
 );
 
 //Remove the values from Deletions array

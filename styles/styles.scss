@@ -473,6 +473,7 @@ dialog.my-modal::backdrop {
     background:rgba(10, 10, 10, 0.8);
     -webkit-animation: fade 0.5s ease normal;
     animation: fade 0.5s ease normal;
+    backdrop-filter:blur(2px);
 }
 
 button.close-modal {
