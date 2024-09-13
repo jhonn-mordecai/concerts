@@ -13,7 +13,7 @@
     </p>  
     <hr>
     <p><b>COVID GAP</b></p>
-    <p>Everything was shut down in 2020 and part of 2021 due to the COVID pandemic; hence nothing for 2020 and only two listed for 2021.</p>
+    <p>Everything was shut down for most of 2020 and part of 2021 due to the COVID pandemic; hence the lack of much during those years.</p>
 </dialog>
 
 <dialog id="concert_year_modal" class="my-modal" role="dialog" aria-labelledby="concert_year_modal" aria-hidden="true">
