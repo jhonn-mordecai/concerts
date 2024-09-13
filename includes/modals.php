@@ -4,9 +4,7 @@
     </p>
     <h3 class="stats-modal-title">Disclaimers</h3>
     <p>
-        While I strove over the years to keep an accurate and complete record, there are no-doubt shows I may have missed; maybe a random band seen at a bar one night, or a few bands that my own various bands shared a bill with on tour, etc.
-        <br />
-        I decided in most cases not to include local bands/friends, unless they were featured on the bill as an opener. Therefore, this list may not be 100% complete in the strictest-possible sense. The actual number of gigs attended, all inclusive, is far more.
+        While I strove over the years to keep track of everything, this archive may not be 100% complete in the strictest sense. Random bar bands, and the various and quite numerous shows for local bands/friends' bands were often not counted for the sake of this database (unless they were on a bill as an opening act, etc.). There may still possibly be a tiny number of others that I failed to track and have forgotten.
     </p>
     <p style="margin-bottom:0;">Also included are a couple various other events like stand-up comedy performances or talks by anyone important... "marquee events," so to speak.</p>  
     <hr />
