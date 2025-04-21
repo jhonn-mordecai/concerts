@@ -686,7 +686,6 @@ span.sub-info {color:$support-gray;}
 
     .column-venue {
         border-top:$standard-border;
-        width:max-content;
         margin-inline:auto;
     }
 
@@ -694,6 +693,10 @@ span.sub-info {color:$support-gray;}
     .column-venue {
         padding:0.75rem 0.5rem;
     }
+}
+
+@media only screen and (min-width: 471px) and (max-width:736px) {
+    .column-venue {width:max-content;}
 }
 
 @media only screen and (min-width: 738px) {
